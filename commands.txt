@@ -1,0 +1,34 @@
+# Activate the venv 
+
+source fastapienv/bin/activate
+
+# Starting the pp
+
+uvicorn main:app --reload # run from the dir where main.py is!
+
+# Sqllite
+
+sqllite [file.dbx]
+
+.mode column
+.mode table
+
+# Postgres
+
+docker compose -f docker-compose.yaml up
+
+OR
+
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+
+## mongodb ##
+
+docker run -d --name some-mongo -p 27017:27017 -e MONGO_INITDB_ROOT_USERNAME=sikora -e MONGO_INITDB_ROOT_PASSWORD=sikora mongo
+
+mongodb://sikora:sikora@0.0.0.0:27017/
+
+# Connect to the container
+
+docker exec -it some-mongo bash
+
+/bin/mongosh --username sikora --password sikora

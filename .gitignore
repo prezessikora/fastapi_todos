@@ -3,8 +3,14 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# SQLite DBs
+todos_app.db
+test.db
+
 # C extensions
 *.so
+
+ .DS_Store
 
 # Distribution / packaging
 .Python
