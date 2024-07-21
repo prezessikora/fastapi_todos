@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+fastapienv/
+mongo_course/
+
 # SQLite DBs
 todos_app.db
 test.db
