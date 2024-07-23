@@ -2,7 +2,6 @@ from sqlalchemy import create_engine, StaticPool, text
 from sqlalchemy.orm  import sessionmaker
 from database import Base
 from main import app
-from routers.todos import get_db,get_current_user
 from fastapi.testclient import TestClient
 from fastapi import status
 import pytest
@@ -27,19 +26,21 @@ def override_get_current_user():
     return {
         'username': 'ksikora@test.com',
         'id': 1,
-        'user_role': 'admin'
+        'role': 'admin'
     }
 
 client = TestClient(app)
 
+attrs = {
+    'title': "Lear to code",
+    'description':  "so that you are a better manager :)",
+    'priority' : 5,
+    'owner_id': 1
+}
+
 @pytest.fixture
 def test_todo():
-    todo = Todo(
-        title="Lear to code",
-        description = "so that you are a better manager :)",
-        priority = 5,
-        owner_id =1
-    )
+    todo = Todo(**attrs)
     db = TestingSessionLocal()
     db.add(todo)
     db.commit()

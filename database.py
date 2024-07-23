@@ -9,7 +9,7 @@ engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={'check_same_thread
 
 #psql
 
-SQLALCHEMY_PSQL_DATABASE_URL = 'postgresql://postgres:mysecretpassword@localhost/todoappdatabase'
+SQLALCHEMY_PSQL_DATABASE_URL = 'database-1.cbkm2qskgvht.us-east-1.rds.amazonaws.com'
 engine_psql = create_engine(SQLALCHEMY_DATABASE_URL)
 
 
