@@ -9,11 +9,12 @@ mongo_course/
 # SQLite DBs
 todos_app.db
 test.db
+backup.db
 
 # C extensions
 *.so
 
- .DS_Store
+**/.DS_Store
 
 # Distribution / packaging
 .Python
