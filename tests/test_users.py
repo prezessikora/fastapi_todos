@@ -26,7 +26,7 @@ def test_change_password_success(test_user):
 
 def test_change_password_invalid_password(test_user):
     response = client.put('/users/password',json={
-        'password' : 'onyx1',
+        'password' : 'onyx1', 
         'new_password' : 'xyzxyz',
     })
 
