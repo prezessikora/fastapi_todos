@@ -66,7 +66,7 @@ async def create_user(db: db_dep, request: CreateUserRequest):
     return model
 
 
-def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
+async def get_current_user(token: Annotated[str, Depends(oauth2_bearer)]):
     try:
         payload = jwt.decode(token=token, key=SECRET_KEY,
                              algorithms=[ALGORITHM])
@@ -93,11 +93,13 @@ def authenticate_user(username: str, password: str, db):
     else:
         print(f'User {username} NOT found.')
         return False
-
+  
+    
 
 def create_access_token(username: string, user_id: int, role: string, expires_delta: timedelta):
     encode = {'sub': username, 'id': user_id, 'role': role}
-    expires = datetime.utcnow() + expires_delta
+    import pytz
+    expires = datetime.now(pytz.utc) + expires_delta
     encode.update({'exp': expires})
     return jwt.encode(encode, SECRET_KEY, algorithm=ALGORITHM)
 
