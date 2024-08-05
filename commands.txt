@@ -37,5 +37,10 @@ docker exec -it some-mongo bash
 
 # Deploy to AWS EC2
 Create instance
-ssh -i <YOUR-FASTAPI-KEY-FILE> ubuntu@ec2-44-204-101-184.compute-1.amazonaws.com
-git clone <YOUR-REPO-NAME>
+ssh -i certs/fastapi-server-keys.pem ubuntu@ec2-44-204-101-184.compute-1.amazonaws.com
+
+ssh-keygen -t ed25519 -C "your_email@example.com"
+ssh-add ~/.ssh/id_ed25519
+Add the pub key to the git account
+git clone git@github.com:prezessikora/fastapi_todos.git
+

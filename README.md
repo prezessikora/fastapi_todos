@@ -1,2 +1,3 @@
 # fastapi_todos
-FastAPI Study on with a simple TODOs management API and CLI based client
+
+FastAPI service for simple TODOs management with API and Jinja2 web client
