@@ -32,3 +32,10 @@ mongodb://sikora:sikora@0.0.0.0:27017/
 docker exec -it some-mongo bash
 
 /bin/mongosh --username sikora --password sikora
+
+
+
+# Deploy to AWS EC2
+Create instance
+ssh -i <YOUR-FASTAPI-KEY-FILE> ubuntu@ec2-44-204-101-184.compute-1.amazonaws.com
+git clone <YOUR-REPO-NAME>
